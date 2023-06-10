@@ -3,5 +3,5 @@
 # ----------------------------------------
 
 output "dns_id" {
-    value = [for i in module.dns_updater.id : i.id]
+    value = [for i in module.dns_updater.name : i.name]
 }
