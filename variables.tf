@@ -14,7 +14,4 @@ variable "ttl" {
   type = number
 }
 
-variable "name" {
-  type = string
-  default = "www"
-}
+variable "name" {}
