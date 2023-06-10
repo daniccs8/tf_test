@@ -9,6 +9,9 @@ locals {
 dns_input = {
     for file in fileset("${path.module}/input-json", "*.json") : basename("${file}") => jsondecode(file("${path.module}/input-json/${file}"))
   }
+  dns_name = [
+    for fname in fileset("${path.module}/input-json", "*.json") : trim(basename("${file}"), ".json")
+  ]
 }
 
 module "dns_updater" {
@@ -22,5 +25,5 @@ module "dns_updater" {
   zone      = each.value.zone
   addresses = each.value.addresses
   ttl       = each.value.ttl
-  name      = var.name
+  name      = "${local.dns_name}"
 }
