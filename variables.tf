@@ -14,4 +14,6 @@ variable "ttl" {
   type = number
 }
 
-variable "name" {}
+variable "name" {
+    type = string
+}
