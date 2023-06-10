@@ -10,7 +10,7 @@ dns_input = {
     for file in fileset("${path.module}/input-json", "*.json") : basename("${file}") => jsondecode(file("${path.module}/input-json/${file}"))
   }
   dns_name = [
-    for fname in fileset("${path.module}/input-json", "*.json") : trim(basename("${file}"), ".json")
+    for fname in fileset("${path.module}/input-json", "*.json") : trim(basename("${fname}"), ".json")
   ]
 }
 
