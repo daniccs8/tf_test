@@ -8,7 +8,7 @@ provider "dns" {
 locals {
   
   input_json = {
-    for filename, content in fileset("${path.module}/examples/exercise/input-json", "*.json") : trim(basename("${content}"), ".json")  => jsondecode(file("${path.module}/examples/exercise/input-json/${content}"))
+    for filename, content in fileset("${path.module}/input-json", "*.json") : trim(basename("${content}"), ".json")  => jsondecode(file("${path.module}/input-json/${content}"))
   }
 
 }
