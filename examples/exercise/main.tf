@@ -6,25 +6,10 @@ provider "dns" {
 }
 
 locals {
-  
   input_json = {
-    for filename, content in fileset("${path.module}/input-json", "*.json") : trim(basename("${content}"), ".json")  => jsondecode(file("${path.module}/input-json/${content}"))
+  for filename, content in fileset("${path.module}/input-json", "*.json") : trim(basename("${content}"), ".json")  => jsondecode(file("${path.module}/input-json/${content}"))
   }
-
 }
-
-output "input_object" {
-  value = local.input_json  
-}
-
-  # dns_input = {
-  # for file in fileset("${path.module}/input-json", "*.json") : basename("${file}") => jsondecode(file("${path.module}/input-json/${file}"))
-  # }
-  # dns_name = {
-  #   for fname in fileset("${path.module}/input-json", "*.json") : trim(basename("${fname}"), ".json") => fname
-  # }      
-  #       
-
 
 module "dns_updater" {
 
