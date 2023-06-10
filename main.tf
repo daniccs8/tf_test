@@ -46,7 +46,9 @@ terraform {
 # ------------------------------------------
 
 locals {
-
+dns_input = {
+    for file in fileset("${path.module}/examples/exercise/input-json", "*.json") : basename("${file}") => jsondecode(file("${path.module}/examples/exercise/input-json/${file}"))
+  }
 }
 
 
