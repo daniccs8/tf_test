@@ -10,7 +10,11 @@ locals {
   input_json = {
     for filename, content in fileset("${path.module}/examples/exercise/input-json", "*.json") : trim(basename("${content}"), ".json")  => jsondecode(file("${path.module}/examples/exercise/input-json/${content}"))
   }
-  
+
+}
+
+output "input_object" {
+  value = local.input_json  
 }
 
   # dns_input = {
