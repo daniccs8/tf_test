@@ -2,7 +2,7 @@
     "addresses": [
         "1.1.1.1"
     ],
-    "ttl": 300,
+    "ttl": 30,
     "zone": "example.com.",
     "dns_record_type": "a"
 }
