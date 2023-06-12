@@ -2,9 +2,13 @@
 * # Terraform
 *
 * <Short TF module description>
-*
+* The module for DNS provider defines a resource block for the DNS A record set. 
+* This resource block exposed input variables for attributes values such as zone, name, addresses, ttl, that allow users of the module
+* to provide flexibility and customization for specific values.
 *
 * ## Usage
+* To use resource block of this module, configure inputs for attribute values follow data type constrain.
+* 
 *
 * ### Quick Example
 *

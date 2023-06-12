@@ -5,6 +5,8 @@ provider "dns" {
   }
 }
 
+# Logic for reading .json files and configure as inputs in resource block.
+
 locals {
   input_json = {
     for filename, content in fileset("${path.module}/input-json", "*.json") : trim(basename("${content}"), ".json") => jsondecode(file("${path.module}/input-json/${content}"))
